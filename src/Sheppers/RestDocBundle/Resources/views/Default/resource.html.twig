@@ -1,0 +1,16 @@
+<section id="{{ resource.name }}">
+    <h2>{{ resource.name }}</h2>
+    <p>{{ resource.description }}</p>
+    <table class="table table-striped table-bordered table-hover">
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Default</th>
+            <th>Format</th>
+            <th>Sample</th>
+        </tr>
+        {% include "SheppersRestDocBundle:Default:properties.html.twig" with {'properties': resource.properties, 'indent': '' } %}
+    </table>
+    {% include "SheppersRestDocBundle:Default:operations.html.twig" with {'operations': resource.operations } %}
+</section>

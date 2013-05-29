@@ -1,0 +1,3 @@
+sheppers_rest_doc:
+    resource: "@SheppersRestDocBundle/Controller/"
+    type: annotation

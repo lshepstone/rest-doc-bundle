@@ -1,0 +1,12 @@
+{% for property in properties %}
+    {% include "SheppersRestDocBundle:Default:property.html.twig" with {'property': property, 'indent': indent } %}
+    {% if property.properties.count %}
+        {% include "SheppersRestDocBundle:Default:properties.html.twig" with {'properties': property.properties, 'indent': indent ~ '&nbsp;&nbsp;&nbsp;' } %}
+    {% endif %}
+{% else %}
+    <tr>
+        <td colspan="6">
+            <i>There are no properties defined for this resource</i>
+        </td>
+    </tr>
+{% endfor %}
