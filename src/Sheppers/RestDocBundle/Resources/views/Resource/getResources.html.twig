@@ -1,0 +1,7 @@
+{% extends 'SheppersRestDocBundle::layout.html.twig' %}
+
+{% block content %}
+    {% for resource in resources %}
+        {% include "SheppersRestDocBundle:Resource:include/resource.html.twig" with {'resource': resource } %}
+    {% endfor %}
+{% endblock %}

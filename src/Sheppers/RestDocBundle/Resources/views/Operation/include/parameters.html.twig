@@ -1,0 +1,21 @@
+<table class="table table-striped table-bordered table-hover">
+    <tr>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Description</th>
+        <th>Default</th>
+        <th>Format</th>
+        <th>Sample</th>
+    </tr>
+    {% for parameter in parameters %}
+        {% include "SheppersRestDocBundle:Operation:include/parameter.html.twig" with {'parameter': parameter } %}
+    {% else %}
+        <tr>
+            <td colspan="8">
+                <i>There are no parameters defined for this operation</i>
+            </td>
+        </tr>
+    {% endfor %}
+</table>

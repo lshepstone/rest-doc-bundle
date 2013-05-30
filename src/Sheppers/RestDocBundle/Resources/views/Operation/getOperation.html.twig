@@ -1,0 +1,29 @@
+{% extends 'SheppersRestDocBundle::layout.html.twig' %}
+
+{% block content %}
+<h2>{{ operation.resource.name }} / {{ operation.name }}</h2>
+<p>{{ operation.description }}</p>
+<p><i>Performed in scope of a {{ operation.scope }}</i></p>
+<h3>Request</h3>
+<p><code>{{ operation.method }} {{ operation.uri }}</code></p>
+{% include "SheppersRestDocBundle:Operation:include/parameters.html.twig" with {'parameters': operation.parameters } %}
+<h3>Response</h3>
+<table class="table table-striped table-bordered table-hover">
+    <tr>
+        <th>Code</th>
+        <th>Reason</th>
+    </tr>
+    {% for response in operation.responses %}
+        <tr>
+            <td>{{ response.code }}</td>
+            <td>{{ response.message }}</td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="2">
+                <i>There are no responses defined for this operation</i>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,6 @@
+<tr>
+    <td><a href="{{ path('RestDoc_Operations_getOperation', {'resource': operation.resource.name, 'operation': operation.name }) }}">{{ operation.name }}</a></td>
+    <td>{{ operation.scope }}</td>
+    <td>{{ operation.description }}</td>
+    <td>{{ operation.method }} {{ operation.uri }}</td>
+</tr>
