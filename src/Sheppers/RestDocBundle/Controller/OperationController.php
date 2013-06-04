@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sheppers\RestDescribeBundle\Entity\Operation;
 
 class OperationController extends Controller
 {
@@ -20,6 +21,8 @@ class OperationController extends Controller
             ->findOneByNameForResource($resource, $operation)
         ;
 
-        return $this->render('SheppersRestDocBundle:Operation:getOperation.html.twig', array('operation' => $operation));
+        return $this->render('SheppersRestDocBundle:Operation:getOperation.html.twig', array(
+            'operation' => $operation
+        ));
     }
 }

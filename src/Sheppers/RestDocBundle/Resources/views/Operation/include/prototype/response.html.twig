@@ -1,0 +1,8 @@
+<pre>
+HTTP/1.1 200 OK
+{% for name, value in prototype.headers %}
+{{ name }}: {{ value }}
+{% endfor %}
+
+{{ prototype.body|pretty('json') }}
+</pre>
