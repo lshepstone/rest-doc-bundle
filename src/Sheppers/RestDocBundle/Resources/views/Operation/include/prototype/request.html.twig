@@ -1,8 +1,10 @@
 <pre>
-{{ prototype.method }} {{ prototype.uri }} HTTP/1.1
+{{ prototype.method }} {{ prototype.uri }}{{ prototype.query }} HTTP/1.1
 {% for name, value in prototype.headers %}
 {{ name }}: {{ value }}
 {% endfor %}
+{% if prototype.body != '' %}
 
 {{ prototype.body|pretty('json') }}
+{% endif %}
 </pre>

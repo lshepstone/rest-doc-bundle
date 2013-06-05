@@ -30,8 +30,24 @@ class RequestPrototype
         );
     }
 
+    public function getQuery()
+    {
+        $query = null;
+
+        foreach ($this->operation->getParameters() as $parameter) {
+            if ('query' == $parameter->getLocation()) {
+                if (null !== $query) $query .= '&';
+                $name = $parameter->getName();
+                $query .= $name . '={' . $name . '}';
+            }
+        }
+
+        return $query ? '?' . $query : null;
+    }
+
     public function getBody()
     {
+        $body = null;
         $entity = array();
 
         foreach ($this->operation->getParameters() as $parameter) {
@@ -41,7 +57,9 @@ class RequestPrototype
             }
         }
 
-        $body = json_encode($entity);
+        if (count($entity)) {
+            $body = json_encode($entity);
+        }
 
         return $body;
     }

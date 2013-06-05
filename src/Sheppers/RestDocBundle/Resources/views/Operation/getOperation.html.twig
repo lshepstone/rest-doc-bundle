@@ -11,7 +11,11 @@
 {% include "SheppersRestDocBundle:Operation:include/parameters.html.twig" with {'parameters': operation.parameters } %}
 <h3>Response</h3>
 <h4>Prototype</h4>
+{% if operation.scope == 'resource' %}
 {% include "SheppersRestDocBundle:Operation:include/prototype/response.html.twig" with {'prototype': prototype('response', operation) } %}
+{% else %}
+<p><i>No response prototype is available for this operation.</i></p>
+{% endif %}
 <h5>Properties</h5>
 <table class="table table-striped table-bordered table-hover">
     <tr>
