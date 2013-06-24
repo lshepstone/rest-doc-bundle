@@ -11,10 +11,10 @@
 {% include "SheppersRestDocBundle:Operation:include/parameters.html.twig" with {'parameters': operation.parameters } %}
 <h3>Response</h3>
 <h4>Prototype</h4>
-{% if operation.method == 'GET' and operation.scope == 'resource' %}
-{% include "SheppersRestDocBundle:Operation:include/prototype/response.html.twig" with {'prototype': prototype('response', operation) } %}
-{% else %}
+{% if operation.method == 'GET' and operation.scope == 'collection' %}
 <p><i>No response prototype is available for this operation.</i></p>
+{% else %}
+    {% include "SheppersRestDocBundle:Operation:include/prototype/response.html.twig" with {'prototype': prototype('response', operation) } %}
 {% endif %}
 <h5>Properties</h5>
 <table class="table table-striped table-bordered table-hover">
