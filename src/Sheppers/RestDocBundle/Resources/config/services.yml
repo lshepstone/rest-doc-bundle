@@ -1,7 +1,21 @@
 parameters:
     sheppers_rest_doc.doc.path: %kernel.root_dir%/../vendor/sheppers/rest-doc-bundle/src/Sheppers/RestDocBundle/Resources/doc
+    sheppers_rest_doc.twig.pretty_extension.class: Sheppers\RestDocBundle\Twig\PrettyExtension
+    sheppers_rest_doc.twig.prototype_extension.class: Sheppers\RestDocBundle\Twig\PrototypeExtension
+    sheppers_rest_doc.formatter_json.class: Sheppers\RestDocBundle\Formatter\JsonFormatter
 
 services:
-#    sheppers_rest_doc.example:
-#        class: %sheppers_rest_doc.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    sheppers_rest_doc.formatter_json:
+        class: %sheppers_rest_doc.formatter_json.class%
+
+    sheppers_rest_doc.twig.pretty_extension:
+        class: %sheppers_rest_doc.twig.pretty_extension.class%
+        calls:
+          - [addFormatter, ['json', @sheppers_rest_doc.formatter_json]]
+        tags:
+            - { name: twig.extension }
+
+    sheppers_rest_doc.twig.prototype_extension:
+        class: %sheppers_rest_doc.twig.prototype_extension.class%
+        tags:
+            - { name: twig.extension }

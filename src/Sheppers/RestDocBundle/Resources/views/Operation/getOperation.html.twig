@@ -5,9 +5,30 @@
 <p>{{ operation.description }}</p>
 <p><i>Performed in scope of a {{ operation.scope }}</i></p>
 <h3>Request</h3>
-<p><code>{{ operation.method }} {{ operation.uri }}</code></p>
+<h4>Prototype</h4>
+{% include "SheppersRestDocBundle:Operation:include/prototype/request.html.twig" with {'prototype': prototype('request', operation) } %}
+<h5>Parameters</h5>
 {% include "SheppersRestDocBundle:Operation:include/parameters.html.twig" with {'parameters': operation.parameters } %}
 <h3>Response</h3>
+<h4>Prototype</h4>
+{% if operation.method == 'GET' and operation.scope == 'collection' %}
+<p><i>No response prototype is available for this operation.</i></p>
+{% else %}
+    {% include "SheppersRestDocBundle:Operation:include/prototype/response.html.twig" with {'prototype': prototype('response', operation) } %}
+{% endif %}
+<h5>Properties</h5>
+<table class="table table-striped table-bordered table-hover">
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+        <th>Format</th>
+        <th>Sample</th>
+    </tr>
+    {% include "SheppersRestDocBundle:Resource:include/properties.html.twig" with {'properties': operation.resource.properties, 'indent': '' } %}
+</table>
+<h4>Response Codes</h4>
 <table class="table table-striped table-bordered table-hover">
     <tr>
         <th>Code</th>

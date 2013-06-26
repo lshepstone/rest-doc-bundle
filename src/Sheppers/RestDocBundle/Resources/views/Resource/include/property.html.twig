@@ -2,9 +2,9 @@
     {% autoescape false %}
     <td>{{ indent }}{{ property.name }}</td>
     {% endautoescape %}
-    <td>{{ property.type ?: 'n/a' }}</td>
-    <td>{{ property.description ?: 'n/a' }}</td>
-    <td>{{ property.default ?: 'n/a' }}</td>
-    <td>{{ property.format ?: 'n/a' }}</td>
-    <td>{{ property.sample ?: 'n/a' }}</td>
+    <td>{{ property.type ?: '-' }}</td>
+    <td>{{ property.description ?: '-' }}</td>
+    <td>{{ property.default ?: '-' }}</td>
+    <td>{{ property.format ?: '-' }}</td>
+    <td>{{ property.sample ?: '-' }}</td>
 </tr>

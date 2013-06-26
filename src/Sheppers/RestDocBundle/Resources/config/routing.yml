@@ -1,3 +1,11 @@
-sheppers_rest_doc:
-    resource: "@SheppersRestDocBundle/Controller/"
+sheppers_rest_doc_resource:
+    resource: "@SheppersRestDocBundle/Controller/ResourceController.php"
+    type: annotation
+
+sheppers_rest_doc_operation:
+    resource: "@SheppersRestDocBundle/Controller/OperationController.php"
+    type: annotation
+
+sheppers_rest_doc_page:
+    resource: "@SheppersRestDocBundle/Controller/PageController.php"
     type: annotation
