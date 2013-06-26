@@ -2,13 +2,13 @@
 
 namespace Sheppers\RestDocBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\DependencyInjection\ContainerAware;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use dflydev\markdown\MarkdownParser;
 
-class PageController extends Controller
+class PageController extends ContainerAware
 {
     /**
      * @Route("/", name="RestDoc_Pages_getPages")
@@ -25,7 +25,7 @@ class PageController extends Controller
      */
     public function getPageAction(Request $request, $page)
     {
-        $file = __DIR__ . '/../Resources/doc/' . $page . '.md';
+        $file = $this->container->getParameter('sheppers_rest_doc.doc.path') . '/' . $page . '.md';
         if (false === is_file($file)) {
             throw $this->createNotFoundException("Page '{$page}' was not found at '{$file}'");
         }
