@@ -1,4 +1,5 @@
 parameters:
+    sheppers_rest_doc.doc.path: %kernel.root_dir%/../vendor/sheppers/rest-doc-bundle/src/Sheppers/RestDocBundle/Resources/doc
     sheppers_rest_doc.twig.pretty_extension.class: Sheppers\RestDocBundle\Twig\PrettyExtension
     sheppers_rest_doc.twig.prototype_extension.class: Sheppers\RestDocBundle\Twig\PrototypeExtension
     sheppers_rest_doc.formatter_json.class: Sheppers\RestDocBundle\Formatter\JsonFormatter
