@@ -2,13 +2,13 @@
 
 namespace Sheppers\RestDocBundle\Controller;
 
-use Symfony\Component\DependencyInjection\ContainerAware;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use dflydev\markdown\MarkdownParser;
 
-class PageController extends ContainerAware
+class PageController extends Controller
 {
     /**
      * @Route("/", name="RestDoc_Pages_getPages")
