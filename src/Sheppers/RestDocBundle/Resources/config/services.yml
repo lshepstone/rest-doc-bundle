@@ -1,5 +1,5 @@
 parameters:
-#    sheppers_rest_doc.example.class: Sheppers\RestDocBundle\Example
+    sheppers_rest_doc.doc.path: %kernel.root_dir%/../vendor/sheppers/rest-doc-bundle/src/Sheppers/RestDocBundle/Resources/doc
 
 services:
 #    sheppers_rest_doc.example:
