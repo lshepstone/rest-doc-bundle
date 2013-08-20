@@ -7,7 +7,13 @@
         <th>Prototype</th>
     </tr>
     {% for operation in operations %}
-        {% include "SheppersRestDocBundle:Resource:include/operation.html.twig" with {'operation': operation } %}
+        {% set granted = true %}
+        {% for role in operation.roles if granted %}
+            {% set granted = is_granted(role) %}
+        {% endfor %}
+        {% if granted %}
+            {% include "SheppersRestDocBundle:Resource:include/operation.html.twig" with {'operation': operation } %}
+        {% endif %}
     {% else %}
         <tr>
             <td colspan="6">
